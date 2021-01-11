@@ -1,22 +1,22 @@
 from flask import Flask, jsonify
 from flask_pymongo import PyMongo
 import urllib.request
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 import time
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/dashboard"
 mongo = PyMongo(app)
 
-@app.route("/")
+@app.route("/api/bunkering-status")
 #bunkering status
 def bunkering_status():
-    field = mongo.db.dispcoll.find(sort=[( '_id', pymongo.DESCENDING )]).limit(1)
+    field = mongo.db.dispcoll.find(sort=[( '_id', mongo.DESCENDING )]).limit(1)
     result = {'_id': str(field['_id']), 'Date': str(field['date']), 'Time': str(field['time']), 'Timestamp': str(field['timestamp']), 'UUID': str(field['uuid']), "BunkeringFlag" : str(field['bunkering_status'])}
     return jsonify(result)
 
 #Network Status
-@app.route("/network-status")
+@app.route("/api/network-status")
 def network_status():
     host = 'http://google.com'
     try:
@@ -49,3 +49,7 @@ def ringbuzzer():
         time.sleep(1)
 
     GPIO.cleanup()
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=3000)
