@@ -8,9 +8,9 @@ import {BackendService} from './backend.service';
 })
 export class AppComponent {
   title = 'dashboard';
-  internet_status = 1
-  intranet_status = 1
-  bunkering_status = 1
+  internet_status = 0
+  intranet_status = 0
+  bunkering_status = 0
 
 
   constructor(private status: BackendService){}
@@ -27,7 +27,7 @@ export class AppComponent {
         this.internet_status = res.internet_status;
         this.intranet_status = res.intranet_status;
       })
-    }, 30000);
+    }, 10000);
   }
 
   bunkering(){

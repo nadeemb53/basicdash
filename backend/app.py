@@ -1,18 +1,22 @@
 from flask import Flask, jsonify
 from flask_pymongo import PyMongo
+from bson.json_util import dumps
 import urllib.request
 # import RPi.GPIO as GPIO
 import time
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/dashboard"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/sentinel-adp"
 mongo = PyMongo(app)
 
 @app.route("/api/bunkering-status")
 #bunkering status
 def bunkering_status():
-    field = mongo.db.dispcoll.find(sort=[( '_id', mongo.DESCENDING )]).limit(1)
-    result = {'_id': str(field['_id']), 'Date': str(field['date']), 'Time': str(field['time']), 'Timestamp': str(field['timestamp']), 'UUID': str(field['uuid']), "BunkeringFlag" : str(field['bunkering_status'])}
+    bunkering = mongo.db.dispcoll
+    status = bunkering.find().sort([('$natural',-1)]).limit(1)
+    for x in status:
+        bunkering_status = x['bunkering_status']
+    result = {'bunkering_status': bunkering_status}
     return jsonify(result)
 
 #Network Status
