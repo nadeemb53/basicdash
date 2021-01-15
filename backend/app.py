@@ -37,7 +37,7 @@ def network_status():
     host = 'http://google.com'
     # host2 = 'http://localhost:27017'
     try:
-        intranet = socket.gethostbyname(hostname)
+        intranet = socket.gethostbyname("Sentinel-MCU-01")
     except:
         intranet = 0
     vessel_name = 'Venus'
