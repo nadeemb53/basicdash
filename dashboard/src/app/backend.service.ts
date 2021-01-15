@@ -18,9 +18,26 @@ export class BackendService {
 
     return request
   }
+
+  public getIP(): Observable<any>{
+    const base = this._http.get('api/ip')
+    const request = base.pipe(
+      map(data=>data)
+    );
+
+    return request
+  }
   
   public getBunkeringStatus(): Observable<any>{
     const base = this._http.get('api/bunkering-status')
+    const request = base.pipe(
+      map(data=>data)
+    );
+    return request
+  }
+
+  public getBunkeredMass(): Observable<any>{
+    const base = this._http.get('api/getMass')
     const request = base.pipe(
       map(data=>data)
     );

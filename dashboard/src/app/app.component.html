@@ -1,14 +1,61 @@
-<div class="container" style="margin: 5%;">
-  <div class="row" style="padding: 2%;">
-    <div class="col-sm-6 col-md-6"><h1>ADP-Net</h1></div>
-    <div class="col-sm-6 col-md-6" [ngClass]="intranet_status == 1? 'connected':'disconnected'"></div>
+<div class="container-fluid" style="background-color: lightblue; padding-bottom: 10%; min-height: 100%;">
+  <div class="row" style="padding: 4% 4% 2% 8%">
+    <div class="col-sm-4">
+      <div class="row">
+        <h2>{{time}}</h2><h5></h5>
+      </div>
+      <div class="row">
+        <h4>{{date}}</h4>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-8"style="text-align: right;font-size: 280%; padding-top: 8%; color: rgb(46, 103, 177);">
+          {{vessel_name}}
+        </div>
+        <div class="col-md-4" style="padding-top: 2%; right:1%">
+          <img src="../assets/icons8-cargo-ship-64.png"/>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row" style="padding: 2%;">
-    <div class="col-sm-6 col-md-6"><h1>Internet</h1></div>
-    <div class="col-sm-6 col-md-6" [ngClass]="internet_status == 1? 'connected':'disconnected'"></div>
+  <div class="container-fluid" style="background-color: white;">
+    <div class="col-sm-12" style="padding: 6% 0 4% 2%;">
+      <div class="row" style="padding: 2%;">
+        <div class="col-sm-3"><h4>ADP-NET</h4></div>
+        <div class="col-sm-3" [ngClass]="intranet_status == 1? 'connected':'disconnected'">{{intranet}}</div>
+        <div class="col-sm-3">{{display}}<br>{{sentinel}}</div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row" style="padding: 2%;">
+        <div class="col-sm-3"><h4>Internet</h4></div>
+        <div class="col-sm-3" [ngClass]="internet_status == 1? 'connected':'disconnected'">{{internet}}</div>
+        <div class="col-sm-3">{{ip}}</div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row" style="padding: 2%">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-6"><h4>Bunkering</h4></div>
+            <div class="col-sm-6" [ngClass]="bunkering_status == 1? 'connected':'disconnected'">{{bunker}}</div>    
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-12" *ngIf = "bunkering_status == 0 ">
+              <div style="border: 1px solid black; background-color: lightblue;text-align: center;font-size: 300%"><p>{{total_mass}} MT</p></div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <!-- <div class="col-sm-6"></div> -->
+      
+
   </div>
-  <div class="row" style="padding: 2%">
-    <div class="col-sm-6 col-md-6"><h1>Bunkering Status</h1></div>
-    <div class="col-sm-6 col-md-6" [ngClass]="bunkering_status == 1? 'connected':'disconnected'"></div>
-  </div>
+
 </div>
+
+

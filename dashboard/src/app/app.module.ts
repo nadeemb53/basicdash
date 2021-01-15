@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BackendService } from './backend.service';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { BackendService } from './backend.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // BrowserAnimationsModule,
+    // MatIconModule
   ],
   providers: [
     BackendService
