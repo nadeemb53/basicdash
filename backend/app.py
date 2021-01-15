@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 from bson.json_util import dumps
 import urllib.request
 import requests
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 import socket
 
