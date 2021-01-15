@@ -18,6 +18,7 @@ def bunkering_status():
     status = bunkering.find().sort([('$natural',-1)]).limit(1)
     for x in status:
         bunkering_status = x['bunkering_status']
+    # result = {'bunkering_status': '1'}
     result = {'bunkering_status': bunkering_status}
     return jsonify(result)
 
@@ -36,12 +37,11 @@ def network_status():
     host = 'http://google.com'
     # host2 = 'http://localhost:27017'
     try:
-        ip_address = socket.gethostbyname(hostname)
+        intranet = socket.gethostbyname(hostname)
     except:
         intranet = 0
     vessel_name = 'Venus'
     internet = 0
-    intranet = 0
     status1 = urllib.request.urlopen(host)
     # status2 = urllib.request.urlopen(host2)
     if status1.status == 200:

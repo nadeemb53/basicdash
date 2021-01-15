@@ -95,6 +95,8 @@ export class AppComponent {
       }, error => {
         this.internet_status = 0;
         this.intranet_status = 0;
+        this.internet = "OFFLINE";
+        this.intranet = "OFFLINE"
       })
     }, 10000);
   }
