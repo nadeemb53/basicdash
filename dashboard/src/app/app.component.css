@@ -2,12 +2,12 @@
     background-color: green;
     content: "ONLINE";
     text-align: center;
-    font-size: x-large;
+    font-size: large;
 }
 
 .disconnected{
     background-color: red;
     content: "OFFLINE";
     text-align: center;
-    font-size: x-large;
+    font-size: large;
 }
