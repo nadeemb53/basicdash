@@ -11,3 +11,5 @@
     text-align: center;
     font-size: large;
 }
+
+html, body {   background-color: lightblue; height: 100%; }

@@ -40,7 +40,7 @@ def network_status():
         intranet = socket.gethostbyname("Sentinel-MCU-01")
     except:
         intranet = 0
-    vessel_name = 'Venus'
+    vessel_name = 'Mars'
     internet = 0
     status1 = urllib.request.urlopen(host)
     # status2 = urllib.request.urlopen(host2)
