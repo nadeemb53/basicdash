@@ -46,7 +46,8 @@ export class AppComponent {
   getCurrentTime(){
     var pullLatest = setInterval(() => {
       var myDate = new Date();
-
+      var time = new Date().toLocaleTimeString().substring(0,5)
+      // var time = new Date().toISOString().substring(11,16)
       let daysList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
       let monthsList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Aug', 'Oct', 'Nov', 'Dec'];
       let date = myDate.getDate();
@@ -74,9 +75,9 @@ export class AppComponent {
 
       let currentTime = `${hours}:${minutes} ${amOrPm}`;
 
-      console.log(today + ' ' + currentTime);
+      console.log(today + ' ' + time);
       this.date = today;
-      this.time = currentTime;
+      this.time = time;
     }, 10000)
   }
 
